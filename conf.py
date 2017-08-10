@@ -1365,3 +1365,6 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+
+# Add links to JSON Feeds to page <head>s, where applicable.
+JSONFEED_APPEND_LINKS = True
