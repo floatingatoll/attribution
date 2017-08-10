@@ -11,6 +11,11 @@ else
     post_link="$2"
 fi
 [[ -n $post_link && -n $post_quote ]] || { echo "quote/link fail"; exit 1; }
+if [[ $post_quote == 'paste' ]]; then
+    post_quote="$(pbpaste)"
+    [[ -n $post_quote ]] || { echo "paste fail"; exit 1; }
+    echo "> \"$post_quote\""; sleep 3
+fi
 
 post_id="$((1+$( ls -1r posts/ | head -n1 | cut -d/ -f2 | cut -d. -f1 )))"
 [[ -n $post_id ]] || { echo "id fail"; exit 1; }
