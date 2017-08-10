@@ -1,0 +1,3 @@
+[submodule "attribution"]
+	path = attribution
+	url = git@github.com:floatingatoll/floatingatoll.github.io.git
