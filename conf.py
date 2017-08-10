@@ -26,7 +26,7 @@ SITE_URL = "https://floatingatoll.github.io/attribution/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://floatingatoll.github.io/attribution/"
 BLOG_EMAIL = "rs@floatingatoll.nu"
-BLOG_DESCRIPTION = "."  # (translatable)
+BLOG_DESCRIPTION = ""  # (translatable)
 
 # Nikola is multilingual!
 #
@@ -1305,7 +1305,7 @@ UNSLUGIFY_TITLES = True
 # USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
-DISABLED_PLUGINS = ["robots"]
+DISABLED_PLUGINS = ["robots", "sitemap"]
 
 # Special settings to disable only parts of the indexes plugin (to allow RSS
 # but no blog indexes, or to allow blog indexes and Atom but no site-wide RSS).
