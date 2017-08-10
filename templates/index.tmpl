@@ -11,6 +11,7 @@
     % if posts and (permalink == '/' or permalink == '/' + index_file):
         <link rel="prefetch" href="${posts[0].permalink()}" type="text/html">
     % endif
+    <link href="https://micro.blog/atoll" rel="me" />
     ${math.math_styles_ifposts(posts)}
 </%block>
 
