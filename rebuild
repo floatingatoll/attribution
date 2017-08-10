@@ -5,6 +5,9 @@ set -e
 nikola build
 
 cd output
+git add -A
+git commit -m rebuild
 git push origin HEAD:master
 cd ..
+git commit -m rebuild -- floatingatoll.github.io
 git push origin HEAD:master
