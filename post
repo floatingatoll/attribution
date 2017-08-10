@@ -13,6 +13,10 @@ echo "> \"$post_quote\""; sleep 3
 post_id="$((1+$( ls -1r posts/ | head -n1 | cut -d/ -f2 | cut -d. -f1 )))"
 [[ -n $post_id ]] || { echo "id fail"; exit 1; }
 
+echo
+{ echo "> $post_quote"; echo -n "$post_link"; } | tee >(pbcopy)
+echo
+
 cat <<EOF > posts/$post_id.rst
 .. date: $post_date
 .. link: $post_link
@@ -30,8 +34,3 @@ cd ..
 git add posts/$post_id.rst floatingatoll.github.io
 git commit -m $post_id
 git push origin HEAD:master
-
-pbcopy <<EOF
-> $post_quote
-$post_link
-EOF
