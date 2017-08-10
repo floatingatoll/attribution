@@ -30,3 +30,8 @@ cd ..
 git add posts/$post_id.rst floatingatoll.github.io
 git commit -m $post_id
 git push origin HEAD:master
+
+pbcopy <<EOF
+> $post_quote
+$post_link
+EOF
