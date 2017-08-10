@@ -34,6 +34,6 @@ git add -A
 git commit -m $post_id
 git push origin HEAD:master
 cd ..
-git add posts/$post_id.rst
-git commit -m $post_id posts/$post_id.rst floatingatoll.github.io
+git add posts/$post_id.rst floatingatoll.github.io
+git commit -m $post_id
 git push origin HEAD:master
