@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+nikola build
+
+cd output
+git push origin HEAD:master
+cd ..
+git push origin HEAD:master
