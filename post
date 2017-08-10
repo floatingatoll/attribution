@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e
+
+post_date="$( date -ju '+%Y-%m-%d %H:%M:%S UTC' )"
+if [[ $1 =~ ^http ]]; then
+    post_link="$1"
+    post_quote="$2"
+else
+    post_quote="$1"
+    post_link="$2"
+fi
+[[ -n $post_link && -n $post_quote ]] || { echo "quote/link fail"; exit 1; }
+
+post_id="$((1+$( ls -1r posts/ | head -n1 | cut -d/ -f2 | cut -d. -f1 )))"
+[[ -n $post_id ]] || { echo "id fail"; exit 1; }
+
+cat <<EOF > posts/$post_id.rst
+.. date: $post_date
+.. link: $post_link
+
+   $post_quote
+EOF
+
+nikola build
+
+cd output
+git add -A
+git commit -m $post_id
+git push origin HEAD:master
+cd ..
+git add posts/$post_id.rst
+git commit -m $post_id posts/$post_id.rst floatingatoll.github.io
+git push origin HEAD:master
