@@ -2,6 +2,8 @@
 
 set -e
 
+source ~/nikola/bin/activate
+
 nikola build
 
 cd output
